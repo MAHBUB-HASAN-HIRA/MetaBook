@@ -1,0 +1,43 @@
+.friendSuggestion {
+	display: flex;
+
+	.feed {
+		flex: 4;
+		height: calc(100vh - 50px);
+		overflow-y: scroll;
+		position: sticky;
+		top: 50px;
+	}
+
+	.peopleKnow {
+		flex: 5;
+		padding: 0 20px;
+	}
+
+	.rightBar {
+		flex: 3;
+		height: calc(100vh - 50px);
+		overflow-y: scroll;
+		position: sticky;
+		top: 50px;
+		overflow-x: hidden;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.friendSuggestion {
+		.rightBar {
+			flex: 0;
+			display: none;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.friendSuggestion {
+		.feed {
+			flex: 0;
+			display: none;
+		}
+	}
+}

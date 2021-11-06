@@ -1,0 +1,50 @@
+.bioChange {
+	width: 300px;
+	height: 250px;
+	display: flex;
+	align-items: center;
+
+	.container {
+		width: 100%;
+
+		.error {
+			color: red;
+		}
+
+		.success {
+			color: rgb(21, 179, 21);
+		}
+
+		.bioContainer {
+			textarea {
+				outline: none;
+				resize: none;
+				border: 1px solid gray;
+				height: 100px;
+				width: -webkit-fill-available;
+				padding: 5px;
+				font-size: 16px;
+				font-weight: 300;
+				border-radius: 5px;
+			}
+		}
+
+		.btnContainer {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 20px;
+
+			.cancel {
+				color: #fff;
+				background-color: rgb(216, 13, 13);
+			}
+
+			.update {
+				color: #fff;
+				background-color: rgb(21, 179, 21);
+			}
+		}
+	}
+}

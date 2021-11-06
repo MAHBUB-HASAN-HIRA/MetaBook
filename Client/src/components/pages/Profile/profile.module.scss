@@ -1,0 +1,70 @@
+.profile {
+	display: flex;
+
+	.errorDiv {
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		h1 {
+			text-transform: capitalize;
+			font-weight: 500;
+		}
+	}
+
+	.profileRight {
+		flex: 9;
+
+		.rightBarForMobile {
+			flex: 0;
+			display: none;
+		}
+
+		.profileRightBottom {
+			display: flex;
+
+			.rightBarForDesktop {
+				flex: 3.5;
+				height: calc(100vh - 50px);
+				overflow-y: scroll;
+				position: sticky;
+				top: 50px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.profile {
+		.profileRight {
+			.profileInfo {
+				.profileInfoDesc {
+					p {
+						width: 100%;
+						padding: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.profile {
+		.profileRight {
+			.rightBarForMobile {
+				flex: 12;
+				padding-left: 10px;
+				display: block;
+			}
+
+			.profileRightBottom {
+				.rightBarForDesktop {
+					flex: 0;
+					display: none;
+				}
+			}
+		}
+	}
+}

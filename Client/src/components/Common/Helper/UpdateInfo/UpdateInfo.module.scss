@@ -1,0 +1,56 @@
+.UpdateInfo {
+	width: 500px;
+	height: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.loginBox {
+		.inputGroup {
+			margin: 20px 0;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			input {
+				border: 1px solid gray;
+				border-radius: 5px;
+				outline: none;
+				font-size: 1rem;
+				padding: 10px 20px;
+			}
+
+			.selectItem {
+				border: 1px solid gray;
+				border-radius: 5px;
+				outline: none;
+				padding: 5px;
+
+				option {
+					padding: 10px;
+				}
+			}
+		}
+
+		.bottom {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 10px;
+
+			.cancel {
+				color: #fff;
+				background-color: rgb(216, 13, 13);
+			}
+
+			.update {
+				color: #fff;
+				background-color: rgb(21, 179, 21);
+
+				.spin {
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+}

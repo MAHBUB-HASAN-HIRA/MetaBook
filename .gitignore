@@ -1,0 +1,9 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+client/node_modules
+client/build
+server/server/node_modules
+server/socket/node_modules
+server/socket/.env
+server/server/.env

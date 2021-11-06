@@ -1,0 +1,46 @@
+.homeRightBar {
+	flex: 3.5;
+	height: calc(100vh - 50px);
+	overflow-y: scroll;
+	position: sticky;
+	top: 50px;
+
+	.birthdayContainer {
+		display: flex;
+		align-items: center;
+
+		.birthdayImg {
+			width: 40px;
+			height: 40px;
+			margin-right: 10px;
+		}
+
+		.birthdayText {
+			font-weight: 300;
+			font-size: 15px;
+		}
+	}
+
+	.rightBarAd {
+		width: 100%;
+		border-radius: 10px;
+		margin: 30px 0;
+	}
+
+	.rightBarTitle {
+		margin-bottom: 20px;
+	}
+
+	.rightBarFriendList {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.homeRightBar {
+		flex: 0;
+		display: none;
+	}
+}
