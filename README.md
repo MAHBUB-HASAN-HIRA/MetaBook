@@ -14,7 +14,9 @@
 - They can make to follow others user.
 - user can update his profile and cover picture.
 - user can also update his information.
+- user can live chat with other active users.
 - Other user can see your followers.
+- Secured Backend API with users jwt token.
 
 ### Usages Technology:
 **Frontend:** `Javascript, ReactJs, Sass, Node-Sass, Material-UI, , socket.io-client`<br />
