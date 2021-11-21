@@ -23,7 +23,7 @@ const MessengerForMobile = () => {
 	const scrollRef = useRef();
 
 	useEffect(() => {
-		socket.current = io("ws://localhost:8000");
+		socket.current = io("https://metabook-mahbub-server-socket.herokuapp.com");
 		socket.current.on("getMessage", (data) => {
 			setArrivalMessage({
 				sender: data?.senderId,

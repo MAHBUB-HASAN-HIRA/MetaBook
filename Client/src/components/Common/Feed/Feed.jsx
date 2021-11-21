@@ -7,9 +7,28 @@ import Share from "../Share/Share";
 import styles from "./feed.module.scss";
 
 const Feed = ({ profile, username, home }) => {
-	const [posts, setPosts] = useState([]);
-	const { loggedInUser } = useContext(AuthContext);
 	const [isFetching, setIsFetching] = useState(false);
+	const { loggedInUser, allPosts, setAllPosts, posts, setPosts } =
+		useContext(AuthContext);
+	
+
+	const fetchPost = async (url) => {
+		setIsFetching(true);
+		const res = await axios.get(url, {
+			headers: {
+				"Content-Type": "application/json",
+				token: `Bearer ${loggedInUser?.token}`,
+			},
+		});
+		if (Array.isArray(res.data)) {
+			setIsFetching(false);
+			setAllPosts(
+				res.data?.sort((p1, p2) => {
+					return new Date(p2.createdAt) - new Date(p1.createdAt);
+				})
+			);
+		}
+	};
 
 	useEffect(() => {
 		let url = "";
@@ -19,34 +38,16 @@ const Feed = ({ profile, username, home }) => {
 		if (home && loggedInUser?._id) {
 			url = `https://metabook-by-mahbub-server.herokuapp.com/api/posts/timeline/${loggedInUser?._id}`;
 		}
-
-		const fetchPost = async (url) => {
-			setIsFetching(true);
-			const res = await axios.get(url, {
-				headers: {
-					"Content-Type": "application/json",
-					token: `Bearer ${loggedInUser?.token}`,
-				},
-			});
-			if (Array.isArray(res.data)) {
-				setIsFetching(false);
-				setPosts(
-					res.data?.sort((p1, p2) => {
-						return new Date(p2.createdAt) - new Date(p1.createdAt);
-					})
-				);
-			}
-		};
 		fetchPost(url);
-	}, [home, profile, loggedInUser?._id, username, loggedInUser?.token]);
+	}, [home, profile, loggedInUser?._id, loggedInUser?.token, username]);
 
 	useEffect(() => {
 		setPosts(
-			posts?.sort((p1, p2) => {
+			allPosts?.sort((p1, p2) => {
 				return new Date(p2.createdAt) - new Date(p1.createdAt);
 			})
 		);
-	}, [posts, setPosts]);
+	}, [allPosts]);
 
 	return (
 		<div className={styles.feed}>

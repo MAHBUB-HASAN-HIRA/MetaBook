@@ -7,3 +7,4 @@ server/server/node_modules
 server/socket/node_modules
 server/socket/.env
 server/server/.env
+user.txt

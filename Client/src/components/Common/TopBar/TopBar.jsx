@@ -17,11 +17,23 @@ import styles from "./topBar.module.scss";
 
 const TopBar = () => {
 	const history = useHistory();
-	const { loggedInUser, dispatch } = useContext(AuthContext);
+	const { loggedInUser, dispatch, allPosts, setPosts } =
+		useContext(AuthContext);
 	const [dropDown, setDropDown] = useState(false);
 	const [notification, setNotification] = useState(false);
 	const location = useLocation().pathname;
 
+	const handleSearch = (e) => {
+		if (e.target.value.length === 0) {
+			setPosts(allPosts);
+		}
+		setPosts(
+			allPosts.filter((post) =>
+				post?.desc?.toLowerCase().includes(e.target.value.toLowerCase())
+			)
+		);
+	
+	};
 	const handleLogout = () => {
 		localStorage.removeItem("SSIID");
 		dispatch({ type: "LOGIN_FAILURE" });
@@ -34,7 +46,7 @@ const TopBar = () => {
 				<Link to="/" style={{ textDecoration: "none" }}>
 					<span className={styles.logo}>MetaBook</span>
 					<img
-						src="https://i.ibb.co/JKrFZFK/metabook-logo-modified.png"
+						src="https://i.ibb.co/MDygKd3/favicon.png"
 						className={styles.facebookLogo}
 						alt=""
 					/>
@@ -45,8 +57,9 @@ const TopBar = () => {
 					<Search className={styles.searchIcon} />
 					<input
 						type="search"
-						placeholder="Search for friends, post or video"
+						placeholder="Search post or video"
 						className={styles.searchInput}
+						onChange={handleSearch}
 					/>
 				</div>
 			</div>
@@ -134,9 +147,9 @@ const TopBar = () => {
 					</Link>
 					<span onClick={() => setDropDown(!dropDown)}>
 						{dropDown ? (
-							<ArrowDropUp className={styles.dropDown} />
-						) : (
 							<ArrowDropDown className={styles.dropDown} />
+						) : (
+							<ArrowDropUp className={styles.dropDown} />
 						)}
 					</span>
 					{dropDown && (

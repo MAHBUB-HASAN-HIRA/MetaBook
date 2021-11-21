@@ -20,7 +20,7 @@ const Messenger = () => {
 	const [onlineUsers, setOnlineUsers] = useState([]);
 
 	useEffect(() => {
-		socket.current = io("https://metabook-by-mahbub.herokuapp.com");
+		socket.current = io("https://metabook-mahbub-server-socket.herokuapp.com");
 		socket.current.on("getMessage", (data) => {
 			setArrivalMessage({
 				sender: data?.senderId,

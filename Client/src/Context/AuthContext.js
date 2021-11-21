@@ -1,5 +1,5 @@
-import { createContext, useReducer } from "react";
-import {AuthReducer, DataLoadReducer} from "./AuthReducer";
+import { createContext, useReducer, useState } from "react";
+import { AuthReducer, DataLoadReducer } from "./AuthReducer";
 
 const INITIAL_STATE = {
 	user: {},
@@ -16,8 +16,13 @@ export const AuthContext = createContext(INITIAL_STATE);
 
 export const AuthContextProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
-	const [fetchState, dispatchDataLoad] = useReducer(DataLoadReducer, INITIAL_DATA_LOAD_STATE);
-	
+	const [fetchState, dispatchDataLoad] = useReducer(
+		DataLoadReducer,
+		INITIAL_DATA_LOAD_STATE
+	);
+	const [allPosts, setAllPosts] = useState([]);
+	const [posts, setPosts] = useState(allPosts);
+
 	return (
 		<AuthContext.Provider
 			value={{
@@ -26,7 +31,11 @@ export const AuthContextProvider = ({ children }) => {
 				error: state.error,
 				dispatch: dispatch,
 				dispatchDataLoad: dispatchDataLoad,
-				fetchState: fetchState
+				fetchState: fetchState,
+				allPosts,
+				setAllPosts,
+				posts,
+				setPosts,
 			}}
 		>
 			{children}

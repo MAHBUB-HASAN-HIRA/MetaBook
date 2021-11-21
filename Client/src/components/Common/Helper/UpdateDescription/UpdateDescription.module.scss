@@ -4,6 +4,10 @@
 	display: flex;
 	align-items: center;
 
+	@media screen and (max-width: 380px) {
+		width: 100%;
+	}
+
 	.container {
 		width: 100%;
 
@@ -35,6 +39,15 @@
 			align-items: center;
 			justify-content: space-between;
 			margin-top: 20px;
+
+			@media screen and (max-width: 330px) {
+				.cancel {
+					padding: 7px 10px;
+				}
+				.update {
+					padding: 7px 10px;
+				}
+			}
 
 			.cancel {
 				color: #fff;

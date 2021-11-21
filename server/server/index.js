@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true }, () => {
 });
 
 const corsOption = {
-	origin:[process.env.DEVELOPMENT_CLIENT_LINK, process.env.PRODUCTION_CLIENT_LINK],
+	origin: process.env.PRODUCTION_CLIENT_LINK,
 	methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
 };
 
@@ -37,6 +37,7 @@ app.use("/api/users", isAuthentication, userRoute);
 app.use("/api/posts", isAuthentication, postRoute);
 app.use("/api/conversation", isAuthentication, conversationRoute);
 app.use("/api/message", isAuthentication, messageRoute);
+app.get("/", (req, res) => res.send("Hi! Mahbub. Metabook server is running."));
 
 app.listen(port, () => {
 	console.log(`Server is listening on port ${port}`);

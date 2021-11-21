@@ -2,7 +2,7 @@ const app = require("express")();
 const server = require("http").createServer(app);
 const port = process.env.PORT || 4020;
 const io = require("socket.io")(server, {
-	cors: { origin: "https://metabook-by-mahbub.netlify.app" },
+	cors: { origin: process.env.PRODUCTION_CLIENT_LINK },
 });
 
 let users = [];
