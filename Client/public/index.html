@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			rel="shortcut icon"
-			href="https://i.ibb.co/MDygKd3/favicon.png"
-			type="image/x-icon"
-		/>
-		<meta name="description" content="Made by Mahbub Hasan Hira" />
-		<title>Meta Book</title>
-		<style>
-			* {
-				margin: 0;
-				font-family: "Roboto", sans-serif;
-				user-select: none;
-			}
-			body {
-				user-select: none;
-			}
-			.react-responsive-modal-modal {
-				border-radius: 5px !important;
-			}
-			.react-emoji-picker--wrapper {
-				bottom: auto !important;
-			}
-			.MuiAccordionDetails-root {
-				display: block !important;
-			}
-		</style>
-	</head>
-	<body oncontextmenu="return false">
-		<div id="root"></div>
-		<script>
-			document.onkeydown = function (e) {
-				if (event.keyCode == 123) {
-					return false;
-				}
-				if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
-					return false;
-				}
-				if (e.ctrlKey && e.shiftKey && e.keyCode == "C".charCodeAt(0)) {
-					return false;
-				}
-				if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
-					return false;
-				}
-				if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) {
-					return false;
-				}
-			};
-		</script>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://i.ibb.co/MDygKd3/favicon.png"
+      type="image/x-icon"
+    />
+    <meta name="title" content="Metabook the simple version of facebook" />
+    <meta
+      name="description"
+      content="This is simple social media practice project by Mahbub Hasan Hira. Who is a fullstack web developer."
+    />
+    <title>Meta Book</title>
+    <style>
+      * {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        user-select: none;
+      }
+      body {
+        user-select: none;
+      }
+      .react-responsive-modal-modal {
+        border-radius: 5px !important;
+      }
+      .react-emoji-picker--wrapper {
+        bottom: auto !important;
+      }
+      .MuiAccordionDetails-root {
+        display: block !important;
+      }
+    </style>
+  </head>
+  <body oncontextmenu="return false">
+    <div id="root"></div>
+    <script>
+      document.onkeydown = function (e) {
+        if (event.keyCode == 123) {
+          return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
+          return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == "C".charCodeAt(0)) {
+          return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
+          return false;
+        }
+        if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) {
+          return false;
+        }
+      };
+    </script>
+  </body>
 </html>
