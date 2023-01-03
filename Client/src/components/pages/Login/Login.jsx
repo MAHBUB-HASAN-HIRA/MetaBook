@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     loginCall(
       { username: username.current.value, password: password.current.value },
-      "https://metabook-by-mahbub-server.herokuapp.com/api/auth/login",
+      "https://api-metabook-by-mahbub.onrender.com/api/auth/login",
       history,
       from,
       dispatch
@@ -44,7 +44,7 @@ const Login = () => {
               type="username"
               placeholder="Username"
               minLength="4"
-              maxLength="20"
+              maxLength="50"
               className={styles.loginInput}
               required
             />

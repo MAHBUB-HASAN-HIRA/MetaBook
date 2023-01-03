@@ -42,7 +42,7 @@ const Register = () => {
       };
       loginCall(
         { ...user },
-        "https://metabook-by-mahbub-server.herokuapp.com/api/auth/register",
+        "https://api-metabook-by-mahbub.onrender.com/api/auth/register",
         history,
         from,
         dispatch
@@ -79,7 +79,7 @@ const Register = () => {
               placeholder="Username"
               className={styles.loginInput}
               minLength="4"
-              maxLength="20"
+              maxLength="50"
               required
               ref={username}
             />
