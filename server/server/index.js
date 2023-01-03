@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+dotenv.config();
 const helmet = require("helmet");
 const morgan = require("morgan");
 const cors = require("cors");
+const db = require("./db/db");
 const fileUpload = require("express-fileupload");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
@@ -14,15 +16,18 @@ const messageRoute = require("./routes/messages");
 const { isAuthentication } = require("./controller/jwt");
 const port = process.env.PORT || 8080;
 
-dotenv.config();
-
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true }, () => {
-	console.log("Database Connected");
-});
+// mongoose.set("strictQuery", true);
+// mongoose.connect(
+//   process.env.MONGO_URL,
+//   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
+//   () => {
+//     console.log("Database Connected");
+//   }
+// );
 
 const corsOption = {
-	origin: process.env.PRODUCTION_CLIENT_LINK,
-	methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+  origin: process.env.PRODUCTION_CLIENT_LINK,
+  methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
 };
 
 //middleware
@@ -40,5 +45,5 @@ app.use("/api/message", isAuthentication, messageRoute);
 app.get("/", (req, res) => res.send("Hi! Mahbub. Metabook server is running."));
 
 app.listen(port, () => {
-	console.log(`Server is listening on port ${port}`);
+  console.log(`Server is listening on port ${port}`);
 });
